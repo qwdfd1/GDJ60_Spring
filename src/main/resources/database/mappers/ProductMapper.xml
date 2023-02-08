@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- namespace 속성엔 사용할 DAO의 풀패키지명 -->
+  <mapper namespace="com.onion.s1.product.ProductDAO">
+  
+  <!-- id속성엔 사용하는 메서드명과 동일한 것이 편함 -->
+  <select id="getProductList" resultType="ProductDTO" >
+  	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU 
+  	FROM PRODUCT 
+  	ORDER BY PRODUCTNUM DESC
+  </select>
+  
+  <select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
+  	SELECT * FROM PRODUCT 
+  	WHERE PRODUCTNUM = #{productNum}
+  </select>
+  
+  <insert id="setProductAdd" parameterType="ProductDTO" >
+  	INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
+	VALUES ( #{productNum}, #{productName}, #{productDetail}, 0.0)
+  </insert>
+  
+  <delete id="setProductDelete" parameterType="Long">
+  	DELETE PRODUCT WHERE PRODUCTNUM = #{productNum}
+  </delete>
+  
+  <select id="getProductNum" resultType="Long">
+  	SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+  </select>
+  
+  
+  
+  </mapper>
