@@ -12,10 +12,39 @@
 	<h1>상품 등록 페이지</h1><br>
 	
 	<form action="./add" method="post">
-		상품 이름 : <input type="text" name="bookName" placeholder="제품명 입력"><br>
-		이자율 : <input type="text" name="bookRate"><br>
-		판매여부 : <input type="text" name="bookSale"><br>
-		상품 설명 : <textarea rows="3" cols="15" name="bookDetail"></textarea><br>
+	
+		<fieldset>
+			<legend>상품명</legend>
+			<input type="text" name="bookName" placeholder="제품명 입력">
+		</fieldset>
+		
+		<fieldset>
+			<legend>이자율</legend>
+			<input type="text" name="bookRate">
+		</fieldset>
+		
+		<fieldset>
+			<label for="">판매 여부 : </label>
+			<label for="bs1">판매</label>  
+			<input id="bs1" type="radio" name="bookSale" value="1" checked="checked">
+			<label for="bs2">판매 중단</label>  
+			<input id="bs2" type="radio" name="bookSale" value="0"><br>
+		</fieldset>
+		
+		<fieldset>
+			<label>판매 여부 : </label>
+			<select name="bookSale">
+				<option value="1">판매</option>
+				<option selected="selected" value="0">판매 중단</option>
+	 		</select>
+ 		</fieldset>
+ 		
+ 		<fieldset>
+ 			<legend>상품 설명</legend>
+			<textarea rows="3" cols="24" name="bookDetail"></textarea>
+		</fieldset>
+		
+
 		
 		<button class="btn btn-primary" type="submit">상품 등록</button>
 	

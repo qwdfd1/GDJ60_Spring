@@ -5,13 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="../resources/css/table.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>BankBook List Page</h1>
-	<div class="col-6">
-		<table class="table table-hover">
+	<h1 class="title">BankBook List Page</h1>
+	
+	<div class="image">
+		<img class="image" alt="" src="../resources/images/beef.jpg">
+	</div>
+	
+	
+		<table class="tbl" border="1">
 			<thead>
 				<tr>
 					<th>상품명</th>
@@ -40,6 +45,5 @@
 		<a href="./add" class="btn btn-primary">상품 등록</a>
 	</div>
 	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
