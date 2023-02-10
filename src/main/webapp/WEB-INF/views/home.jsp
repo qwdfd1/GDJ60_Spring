@@ -4,24 +4,39 @@
 
 <html>
 <head>
+	<link rel="stylesheet" href="./resources/css/reset.css">
 	<link rel="stylesheet" href="./resources/css/main.css">
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-<div class="menu">
-	<a href="./product/list?" >Product List</a>
-	<a href="./member/memberList">Member List</a>
-	<a href="./bankBook/list">BankBook List</a>
-</div>
+	<header>
+		<div class="header_wrap">
 
-<img alt="곱창" src="./resources/images/gobchang.jpg">
-<img alt="소고기" src="./resources/images/beef.jpg">
+			<div class="header_logo">
+				<img src="/resources/images/logo.png" alt="">
+			</div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/A8Qyf59LRIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-<P>  The time on the server is ${serverTime}. </P>
+			<nav class="header_nav">
+				<ul>
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">제품</a></li>
+					<li><a href="#">저축상품</a></li>
+					<li><a href="#">기타메뉴</a></li>
+				</ul>
+			</nav>
+	
+			<div class="header_sub">
+				<ul>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Join</a></li>
+					<li>|</li>
+					<li><a href="#">KO</a></li>
+					<li><a href="#">EN</a></li>
+					<li><a href="#">JP</a></li>
+					<li><a href="#">CN</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
 </body>
 </html>

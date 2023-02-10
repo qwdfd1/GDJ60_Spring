@@ -16,7 +16,7 @@
 	</div>
 	
 	
-		<table class="tbl" border="1">
+		<table class="tbl2">
 			<thead>
 				<tr>
 					<th>상품명</th>
@@ -29,8 +29,8 @@
 				<c:forEach items="${bankBookList}" var="dto">
 					<tr>
 						<td><a href="detail?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>
-						<td>${dto.bookRate}</td>
-						<td>
+						<td class="tbl_td">${dto.bookRate}</td>
+						<td class="tbl_td">
 							<c:choose>
 								<c:when test="${dto.bookSale eq 1}">판매 중</c:when>
 								<c:otherwise>판매 중단</c:otherwise>
