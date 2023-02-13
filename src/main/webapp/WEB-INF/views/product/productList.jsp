@@ -53,6 +53,6 @@
 		<a class="btn btn-primary" href="productAdd">상품 등록</a>
 	
 	
-	 
+	 	<c:import url="../template/common_js.jsp"></c:import>
 	</body>
 </html>
