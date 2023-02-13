@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../template/common_css.jsp">
 <link rel="stylesheet" href="../resources/css/table.css">
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
+	
 	<h1 class="title">BankBook List Page</h1>
 	
 	<div class="image">

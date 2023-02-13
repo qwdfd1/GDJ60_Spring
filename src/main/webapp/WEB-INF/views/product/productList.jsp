@@ -6,11 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<c:import url="../template/common_css.jsp"></c:import>
 <link rel="stylesheet" href="../resources/css/table.css">
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:import url="../template/header.jsp"></c:import>
 	<h1 class="title">Product List Page</h1>
 	c
 	<% 
