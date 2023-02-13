@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../template/common_css.jsp">
+<c:import url="../template/common_css.jsp"></c:import>
 <link rel="stylesheet" href="../resources/css/table.css">
 <title>Insert title here</title>
 </head>
