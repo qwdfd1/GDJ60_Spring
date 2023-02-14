@@ -33,13 +33,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "memberLogin")
-	public void memberLogin() {
+	public void getMemberLogin() {
 		System.out.println("Member Login");
 		
 	}
 	
 	@RequestMapping(value = "memberLogin", method = RequestMethod.POST)
-	public ModelAndView setMemberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
+	public ModelAndView getMemberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
 		
 		session.setAttribute("memberDTO", memberService.getMemberLogin(memberDTO));
 		ModelAndView mv = new ModelAndView();
