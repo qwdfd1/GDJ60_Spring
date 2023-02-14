@@ -35,6 +35,14 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value = "memberLogin", method = RequestMethod.POST)
+	public String setMemberLogin(MemberDTO memberDTO) throws Exception {
+		
+		memberDTO = memberService.getMemberLogin(memberDTO);
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "memberPage")
 	public void memberPage(MemberDTO memberDTO) {
 		System.out.println("Member Mypage");
