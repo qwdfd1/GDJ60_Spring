@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-14T02:48:06.539Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="rjpQ4UhGehwN_EZ4LAvr" version="20.8.18" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-02-14T07:36:52.079Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="Xq9eZjZvzyo8oQnVaSDa" version="20.8.20" type="github" pages="4">
   <diagram name="페이지-1" id="8lj-b28wSVTQeocqOoJ_">
     <mxGraphModel dx="2261" dy="731" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -217,12 +217,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="tC8yW7eEdy6gYAxEzrop" name="페이지-3">
-    <mxGraphModel dx="1434" dy="731" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2603" dy="731" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="YxxCFiQ7qu43JqCeLLy1-1" value="Member" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="80" y="320" width="60" height="30" as="geometry" />
+          <mxGeometry y="240" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="YxxCFiQ7qu43JqCeLLy1-2" value="MemberDAO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="820" y="360" width="270" height="180" as="geometry" />
@@ -249,16 +249,16 @@
           <mxGeometry y="60" width="370" height="120" as="geometry" />
         </mxCell>
         <mxCell id="YxxCFiQ7qu43JqCeLLy1-10" value="MemberController&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="80" y="360" width="280" height="180" as="geometry" />
+          <mxGeometry x="-60" y="360" width="450" height="180" as="geometry" />
         </mxCell>
         <mxCell id="YxxCFiQ7qu43JqCeLLy1-11" value="- memberService : MemberService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="YxxCFiQ7qu43JqCeLLy1-10" vertex="1">
-          <mxGeometry y="26" width="280" height="26" as="geometry" />
+          <mxGeometry y="26" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="YxxCFiQ7qu43JqCeLLy1-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;fontSize=14;" parent="YxxCFiQ7qu43JqCeLLy1-10" vertex="1">
-          <mxGeometry y="52" width="280" height="8" as="geometry" />
+          <mxGeometry y="52" width="450" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="YxxCFiQ7qu43JqCeLLy1-13" value="+ setMemberJoin() : void&#xa;+ setMemberJoin(MemberDTO) : String&#xa;+ getMemberLogin() : void&#xa;+ getMemberLogin(MemberDTO) : String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="YxxCFiQ7qu43JqCeLLy1-10" vertex="1">
-          <mxGeometry y="60" width="280" height="120" as="geometry" />
+        <mxCell id="YxxCFiQ7qu43JqCeLLy1-13" value="+ setMemberJoin() : void&#xa;+ setMemberJoin(MemberDTO) : String&#xa;+ getMemberLogin() : void&#xa;+ getMemberLogin(MemberDTO, HttpServletRequest) : ModelAndView" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;" parent="YxxCFiQ7qu43JqCeLLy1-10" vertex="1">
+          <mxGeometry y="60" width="450" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
