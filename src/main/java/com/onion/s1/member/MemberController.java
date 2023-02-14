@@ -1,9 +1,15 @@
 package com.onion.s1.member;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -36,18 +42,16 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "memberLogin", method = RequestMethod.POST)
-	public String setMemberLogin(MemberDTO memberDTO) throws Exception {
+	public ModelAndView setMemberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
 		
-		memberDTO = memberService.getMemberLogin(memberDTO);
+		session.setAttribute("memberDTO", memberService.getMemberLogin(memberDTO));
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/");
 		
-		return "redirect:/";
+		
+		return mv;
 	}
 	
-	@RequestMapping(value = "memberPage")
-	public void memberPage(MemberDTO memberDTO) {
-		System.out.println("Member Mypage");
-		
-	}
 	
 	@RequestMapping(value ="memberList")
 	public ModelAndView memberList() throws Exception {
@@ -60,6 +64,59 @@ public class MemberController {
 		
 		return mv;
 		
+	}
+	
+	@RequestMapping(value = "memberLogout", method = RequestMethod.GET)
+	public ModelAndView getMemberLogout(HttpSession session) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/");
+		session.invalidate();
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "memberPage", method = RequestMethod.GET)
+	public ModelAndView getMemberPage(HttpSession session) throws Exception {
+		
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("memberDTO", memberService.getMemberPage((MemberDTO)session.getAttribute("memberDTO")));
+		mv.setViewName("/member/memberPage");
+		
+		return mv;
+	}
+	
+	
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
+	public ModelAndView setMemberUpdate(HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("memberDTO", memberService.getMemberPage((MemberDTO)session.getAttribute("memberDTO")));
+		
+		mv.setViewName("/member/memberUpdate");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
+	public ModelAndView setMemberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		memberDTO.setId(((MemberDTO)session.getAttribute("memberDTO")).getId());
+		int result = memberService.setMemberUpdate(memberDTO);
+		
+		if(result > 0) {
+			session.setAttribute("memberDTO", memberService.getMemberPage(memberDTO));
+		}
+		
+		
+		mv.setViewName("redirect:./memberPage");
+		
+		
+		
+		return mv; 
 	}
 
 }

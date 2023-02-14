@@ -5,33 +5,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<c:import url="../template/common_css.jsp"></c:import>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Member MyPage</h1>
 	
-	<hr>
-	
-	<div class="col-6">
-		<table class="table table-hover">
-			
-			<thead>
-				<tr>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>Email</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-	
-			</tbody>
+	<c:import url="../template/header.jsp"></c:import>
+	<div class="container-fluid">
 		
-		</table>
+		<div class="row">		
+			<h1>Member MyPage</h1>
+		</div>
+		
+		
+		<div class="row col-6">
+				<h1>이름 : ${memberDTO.name}</h1>
+				<h1>연락처 : ${memberDTO.phone}</h1>
+				<h1>Email : ${memberDTO.email}</h1>
+				<h1>주소 : ${memberDTO.address}</h1>
+				<a class="btn btn-info" href="./memberUpdate">회원정보 수정</a>
+		</div>
 	</div>
 	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

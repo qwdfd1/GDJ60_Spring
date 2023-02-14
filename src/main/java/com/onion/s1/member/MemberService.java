@@ -25,4 +25,12 @@ public class MemberService {
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
 		return this.memberDAO.getMemberLogin(memberDTO);
 	}
+	
+	public int setMemberUpdate(MemberDTO memberDTO) throws Exception {
+		return this.memberDAO.setMemberUpdate(memberDTO);
+	}
+	
+	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception {
+		return this.memberDAO.getMemberPage(memberDTO);
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   	<div class="container-fluid">
@@ -16,8 +17,14 @@
 			</ul>
 			
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberLogin">Login</a></li>
-				<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberJoin">Join</a></li>
+				<c:if test="${empty memberDTO}">
+					<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberLogin">Login</a></li>
+					<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberJoin">Join</a></li>
+				</c:if>
+				<c:if test="${not empty memberDTO}">
+					<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberPage">MyPage</a></li>
+					<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="/member/memberLogout">Logout</a></li>
+				</c:if>
 				<li class="nav-item"><a class="nav-link disabled" style="font-size: 12px;">|</a></li>
 				<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="#">KO</a></li>
 				<li class="nav-item"><a class="nav-link" style="font-size: 12px;" href="#">EN</a></li>
