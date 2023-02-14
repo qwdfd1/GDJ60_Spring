@@ -8,6 +8,7 @@
  	<typeAliases>
  		<typeAlias type="com.onion.s1.product.ProductDTO" alias="ProductDTO"/>
  		<typeAlias type="com.onion.s1.member.MemberDTO" alias="MemberDTO"/>
+ 		<typeAlias type="com.onion.s1.member.RoleDTO" alias="RoleDTO"/>
  		<typeAlias type="com.onion.s1.bankbook.BankBookDTO" alias="BankBookDTO"/>
  		<typeAlias type="java.lang.Long" alias="Long"/>
  	</typeAliases>

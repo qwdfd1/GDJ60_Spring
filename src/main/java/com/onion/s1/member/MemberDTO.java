@@ -1,5 +1,7 @@
 package com.onion.s1.member;
 
+import java.util.List;
+
 public class MemberDTO {
 	private String id;
 	private String pw;
@@ -7,6 +9,7 @@ public class MemberDTO {
 	private String phone;
 	private String email;
 	private String address;
+	private List<RoleDTO> roleDTOs;
 	
 	public String getId() {
 		return id;
