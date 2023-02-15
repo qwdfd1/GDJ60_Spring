@@ -19,10 +19,10 @@
 		
 		
 		<div class="row col-6">
-				<h1>이름 : ${memberDTO.name}</h1>
-				<h1>연락처 : ${memberDTO.phone}</h1>
-				<h1>Email : ${memberDTO.email}</h1>
-				<h1>주소 : ${memberDTO.address}</h1>
+				<h1>이름 : ${dto.name}</h1>
+				<h1>연락처 : ${dto.phone}</h1>
+				<h1>Email : ${dto.email}</h1>
+				<h1>주소 : ${dto.address}</h1>
 				<a class="btn btn-info" href="./memberUpdate">회원정보 수정</a>
 		</div>
 	</div>

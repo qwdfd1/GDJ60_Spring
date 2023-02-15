@@ -15,8 +15,8 @@
   	</insert>
   	
   	<select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-  		SELECT ID FROM MEMBER
-  		WHERE ID = #{id} AND PW = #{pw}
+  		SELECT * FROM MEMBER
+  		WHERE ID = #{id}
   	</select>
   	
   	<select id="getMemberList" resultType="MemberDTO">
@@ -28,7 +28,4 @@
 		WHERE id = #{id}
   	</update>
   	
-  	<select id="getMemberPage" parameterType="MemberDTO" resultType="MemberDTO">
-  		SELECT * FROM MEMBER WHERE ID = #{id} 
-  	</select>
   </mapper>

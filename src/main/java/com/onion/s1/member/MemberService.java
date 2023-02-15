@@ -23,6 +23,21 @@ public class MemberService {
 	}
 	
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
+		//memberDTO : Client에서 입력한 ID, PW
+		//result : ID와 일치하는 모든 정보
+		MemberDTO result = memberDAO.getMemberLogin(memberDTO);
+		
+		//pw check
+		if(result != null && memberDTO.getPw().equals(result.getPw())) {
+			memberDTO.setPw(null);
+			return memberDTO;
+		}else {
+			return null;
+		}
+		
+	}
+	
+	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception {
 		return this.memberDAO.getMemberLogin(memberDTO);
 	}
 	
@@ -30,7 +45,5 @@ public class MemberService {
 		return this.memberDAO.setMemberUpdate(memberDTO);
 	}
 	
-	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception {
-		return this.memberDAO.getMemberPage(memberDTO);
-	}
+
 }

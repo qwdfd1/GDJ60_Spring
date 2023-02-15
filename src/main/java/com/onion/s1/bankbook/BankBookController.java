@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.onion.s1.util.Pager;
+
 @Controller
 @RequestMapping(value = "/bankBook/*")
 public class BankBookController {
@@ -16,11 +18,12 @@ public class BankBookController {
 	private BankBookService bankBookService;
 	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getBankBookList() throws Exception {
+	public ModelAndView getBankBookList(Pager pager) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("bankBook/list");
-		mv.addObject("bankBookList", bankBookService.getBankBookList());
+		mv.addObject("bankBookList", bankBookService.getBankBookList(pager));
+		mv.addObject("pager", pager);
 		
 		System.out.println("getbankBookList");
 		

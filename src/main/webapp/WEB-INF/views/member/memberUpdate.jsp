@@ -32,7 +32,7 @@
                     <i class="fas fa-user fa-lg fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="formName">Your Name</label>
-                      <input type="text" id="formName" name="name" class="form-control" value="${memberDTO.name }" />
+                      <input type="text" id="formName" name="name" class="form-control" value="${dto.name }" />
                     </div>
                   </div>
                   
@@ -41,7 +41,7 @@
 <!--                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0"> -->
-                      <input type="hidden" id="formPw" name="pw" class="form-control" value="${memberDTO.pw}"/>
+                      <input type="hidden" id="formPw" name="pw" class="form-control" value="${dto.pw}"/>
          <!--              <label class="form-label" for="formPw" >Password</label>
                     </div>
                   </div>  -->
@@ -51,7 +51,7 @@
                     <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="formPhone">Your Phone</label>
-                      <input type="text" id="formPhone" name="phone" class="form-control" value="${memberDTO.phone }" />
+                      <input type="text" id="formPhone" name="phone" class="form-control" value="${dto.phone }" />
                     </div>
                   </div>
                   
@@ -59,7 +59,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="formEmail">Your Email</label>
-                      <input type="email" id="formEmail" name="email" class="form-control" value="${memberDTO.email }"/>
+                      <input type="email" id="formEmail" name="email" class="form-control" value="${dto.email }"/>
                     </div>
                   </div>
                   
@@ -67,7 +67,7 @@
                     <i class="fa fa-home fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="formAddress">Your Address</label>
-                      <input type="text" id="formAddress" name="address" class="form-control" value="${memberDTO.address }"/>
+                      <input type="text" id="formAddress" name="address" class="form-control" value="${dto.address }"/>
                     </div>
                   </div>
                   
