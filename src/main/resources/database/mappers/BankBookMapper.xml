@@ -5,7 +5,7 @@
   
   <mapper namespace="com.onion.s1.bankbook.BankBookDAO">
   
-  	<select id="getBankBookCount" resultType="Long">
+  	<select id="getBankBookCount" parameterType="Pager" resultType="Long">
   		SELECT COUNT(BOOKNUMBER)  
 		FROM BANKBOOK
   	</select>
@@ -22,10 +22,32 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
   	
-  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">
-  		SELECT * FROM BANKBOOK
-  		WHERE BOOKNUMBER = #{bookNumber}
+  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
+		SELECT * 
+			FROM BANKBOOK B
+			LEFT OUTER JOIN
+			BANKBOOKIMG BI
+			ON (B.BOOKNUMBER = BI.BOOKNUMBER)
+		WHERE B.BOOKNUMBER = #{bookNumber}
   	</select>
+  	
+  	<resultMap type="BankBookDTO" id="bankBookDetailResult">
+  		<!-- Primary Key  -->
+  		<id column="BOOKNUMBER" property="bookNumber" />
+  		<!-- 그 외 나머지 -->
+  		<result column="BOOKNAME" property="bookName" />
+  		<result column="BOOKDETAIL" property="bookDetail" />
+  		<result column="BOOKRATE" property="bookRate" />  		
+  		<result column="BOOKSALE" property="bookSale" />  				
+  		<!-- 1:1 관계일 때, collection보다 순서를 먼저 작성해야함 -->
+  		<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+  			<id column="FILENUM" property="fileNum"/>
+  			<result column="FILENAME" property="fileName"/>
+  			<result column="ORINAME" property="oriName"/>
+  		</association>
+  		<!-- 1:N 관계일 때 -->
+  		<!-- <collection property=""></collection> -->
+  	</resultMap>
   	
   	<insert id="setBankBookAdd" parameterType="BankBookDTO"> 
   		INSERT INTO BANKBOOK (BOOKNUMBER, BOOKNAME, BOOKRATE, BOOKSALE, BOOKDETAIL)

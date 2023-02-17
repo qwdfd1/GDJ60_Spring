@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.onion.s1.util.Pager;
 
@@ -15,7 +16,7 @@ public class BankBookService {
 	
 	public List<BankBookDTO> getBankBookList(Pager pager) throws Exception {
 		
-		Long totalCount = bankBookDAO.getBankBookCount();
+		Long totalCount = bankBookDAO.getBankBookCount(pager);
 		
 		pager.makeNum(totalCount);
 		pager.makeRow();
@@ -27,7 +28,7 @@ public class BankBookService {
 		return bankBookDAO.getBankBookDetail(bankBookDTO);
 	}
 	
-	public int setBankBookAdd(BankBookDTO bankBookDTO) throws Exception {
+	public int setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic) throws Exception {
 		return bankBookDAO.setBankBookAdd(bankBookDTO);
 	}
 	

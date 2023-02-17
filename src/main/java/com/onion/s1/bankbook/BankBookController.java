@@ -1,11 +1,14 @@
 package com.onion.s1.bankbook;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.onion.s1.util.Pager;
@@ -50,14 +53,14 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception {
+	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, HttpSession session) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		int result = bankBookService.setBankBookAdd(bankBookDTO);
-		mv.setViewName("redirect:./list");
+		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
 		
-		System.out.println("getbankBookAdd");
-		System.out.println(result != 0);
+	
+		
+		mv.setViewName("redirect:./list");
 		
 		return mv;
 	}

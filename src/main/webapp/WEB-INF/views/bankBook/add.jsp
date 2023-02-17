@@ -34,13 +34,13 @@
 				  </div>
 				</div>
 				
-<!-- 				<fieldset class="row mb-3">
-				    <legend class="col-form-label col-sm-1 pt-0">판매 여부</legend>
-					<div class="form-check form-switch">
-					  <input class="form-check-input" type="checkbox" name="bookSale" value="" role="switch" id="flexSwitchCheckChecked" checked>
-					  <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
-					</div>
-			  	</fieldset> -->
+				<div class="row mb-3">
+				  <label for="exampleFormControlInput3" class="col-sm-1 col-form-label">Image </label>
+				  <div class="col-sm-10">
+				  	<input type="file" class="form-control" name="pic" id="exampleFormControlInput3" placeholder="ex) 1.2 ...">
+				  </div>
+				</div>
+				
 				
 				<fieldset class="row mb-3">
 				    <legend class="col-form-label col-sm-1 pt-0">판매 여부</legend>
