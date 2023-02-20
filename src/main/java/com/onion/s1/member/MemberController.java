@@ -112,12 +112,13 @@ public class MemberController {
 //			session.setAttribute("memberDTO", memberService.getMemberPage(memberDTO));
 //		}
 		
-		
 		mv.setViewName("redirect:./memberPage");
-		
-		
-		
 		return mv; 
+	}
+	
+	@RequestMapping(value = "memberAgree", method = RequestMethod.GET)
+	public void setMemberAgree() throws Exception {
+		
 	}
 
 }
