@@ -82,7 +82,7 @@
 			  </ul>
 			</nav>
 		</div>
-		<div class="row col-md-2 offset-md-10">
+		<div class="row col-md-3 offset-md-9 mx-0">
 			<a href="./add" class="btn btn-primary">상품 등록</a>
 		</div>	
 		</div>
