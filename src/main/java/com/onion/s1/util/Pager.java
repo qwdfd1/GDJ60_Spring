@@ -2,6 +2,12 @@ package com.onion.s1.util;
 
 public class Pager {
 	
+	//검색 종류(사용할 Column)
+	private String kind;
+	
+	//검색어
+	private String search;
+	
 	//하나의 페이지의 출력할 Row의 갯수
 	private Long perPage;
 	
@@ -113,6 +119,23 @@ public class Pager {
 
 	public void setPerBlock(Long perBlock) {
 		this.perBlock = perBlock;
+	}
+	
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 
 	//startRow, lastRow 계산 메서드

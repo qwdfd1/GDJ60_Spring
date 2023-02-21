@@ -22,7 +22,10 @@
 		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">BankBook List Page</h1>
 	</div>	
 
-	<div class="row col-md-7 mx-auto">			
+	
+	<div class="row col-md-7 mx-auto">
+	
+	<!-- 리스트(테이블) -->			
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
@@ -49,6 +52,7 @@
 			</tbody>	
 		</table>
 		
+		<!-- 페이징 -->
 		<div class="row">
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination">
@@ -82,10 +86,32 @@
 			  </ul>
 			</nav>
 		</div>
+		
+		<!-- 검색창  -->
+		<div class="row">
+			<form class="row g-3" action="./list" method="get">
+			  <div class="col-auto">
+			    <label for="kind" class="visually-hidden">Kind</label>
+			    <select class="form-select" name="kind" id="kind" aria-label="Default select example">
+					  <option value="title">상품명</option>
+					  <option value="contents">상품내용</option>
+				</select>
+			  </div>
+			  <div class="col-auto">
+			    <label for="search" class="visually-hidden">Search</label>
+			    <input type="text" class="form-control" name="search" id="search" placeholder="검색어를 입력하세요">
+			  </div>
+			  <div class="col-auto">
+			    <button type="submit" class="btn btn-primary mb-3">검색</button>
+			  </div>
+			</form>		
+		
+		</div>
+		
 		<div class="row col-md-3 offset-md-9 mx-0">
 			<a href="./add" class="btn btn-primary">상품 등록</a>
 		</div>	
-		</div>
+	</div>
 
 	</div>
 	

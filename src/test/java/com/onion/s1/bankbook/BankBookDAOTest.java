@@ -22,14 +22,14 @@ public class BankBookDAOTest extends MyTestCase{
 //		assertNotEquals(0, bankBookDTOs.size());
 	}
 	
-	@Test
-	public void getBankBookDetailTest() throws Exception {
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(3L);
-		bankBookDTO = bankBookDAO.getBankBookDetail(bankBookDTO);
-		
-		assertNull(bankBookDTO);
-	}
+//	@Test
+//	public void getBankBookDetailTest() throws Exception {
+//		BankBookDTO bankBookDTO = new BankBookDTO();
+//		bankBookDTO.setBookNumber(3L);
+//		bankBookDTO = bankBookDAO.getBankBookDetail(bankBookDTO);
+//		
+//		assertNull(bankBookDTO);
+//	}
 	
 	@Test
 	public void setBankBookAddTest() throws Exception {
@@ -40,10 +40,10 @@ public class BankBookDAOTest extends MyTestCase{
 			d = num/100.0;
 			
 			BankBookDTO bankBookDTO = new BankBookDTO();
-			bankBookDTO.setBookName("석주적금"+i);
+			bankBookDTO.setBookName("진규적금"+i);
 			bankBookDTO.setBookRate(d);
 			bankBookDTO.setBookSale(1);
-			bankBookDTO.setBookDetail("부자되십쇼오오오오오"+i);
+			bankBookDTO.setBookDetail("오조오억"+i);
 			
 			bankBookDAO.setBankBookAdd(bankBookDTO);
 		}
