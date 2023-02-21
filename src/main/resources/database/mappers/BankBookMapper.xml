@@ -21,7 +21,7 @@
 			) 
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
-  	
+  	 
   	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
 		SELECT * 
 			FROM BANKBOOK B

@@ -5,6 +5,12 @@ public class Pager {
 	//하나의 페이지의 출력할 Row의 갯수
 	private Long perPage;
 	
+	//한 블럭당 출력할 번호의 갯수
+	private Long perBlock;
+	
+	//전체 page 갯수
+	private Long totalPage;
+	
 	//사용자가 보고싶은 페이지 번호
 	private Long page;
 	
@@ -46,8 +52,10 @@ public class Pager {
 		this.page = page;
 	}
 	
-	
 
+	public Long getTotalPage() {
+		return totalPage;
+	}
 
 	public Long getStartRow() {
 		return startRow;
@@ -94,6 +102,18 @@ public class Pager {
 	public void setBefore(boolean before) {
 		this.before = before;
 	}
+	
+	public Long getPerBlock() {
+		if(this.perBlock == null || this.perBlock<1) {
+			this.perBlock = 5L;
+		}
+		
+		return perBlock;
+	}
+
+	public void setPerBlock(Long perBlock) {
+		this.perBlock = perBlock;
+	}
 
 	//startRow, lastRow 계산 메서드
 	public void makeRow() {
@@ -107,7 +127,7 @@ public class Pager {
 		
 		//1. 전체 row의 갯수 구하기
 		//2. 총 page의 갯수 구하기
-		Long totalPage = totalCount/this.getPerPage();
+		this.totalPage = totalCount/this.getPerPage();
 		if(totalCount % this.getPerPage() != 0) {
 			totalPage++;
 		}
@@ -116,26 +136,24 @@ public class Pager {
 			this.setPage(totalPage);
 		}
 		
-		//3. 한 블럭의 출력할 번호의 갯수
-		Long perBlock = 5L;
 		
 		//4. 총 블럭 수
-		long totalBlock = totalPage/perBlock;
+		long totalBlock = totalPage/this.getPerBlock();
 		
-		if(totalBlock % perBlock != 0) {
+		if(totalBlock % this.getPerBlock() != 0) {
 			totalBlock++;
 		}
 		
 		//5. page 번호로 현재 블럭 번호 구하기
-		Long curBlock = this.getPage()/perBlock;
+		Long curBlock = this.getPage()/this.getPerBlock();
 		
-		if(this.getPage() % perBlock != 0) {
+		if(this.getPage() % this.getPerBlock() != 0) {
 			curBlock++;
 		}
 		
 		//6. curblock의 시작번호와 끝번호를 계산
-		this.startNum = curBlock*perBlock-(perBlock-1);
-		this.lastNum = curBlock*perBlock;
+		this.startNum = curBlock*this.getPerBlock()-(this.getPerBlock()-1);
+		this.lastNum = curBlock*this.getPerBlock();
 
 		this.after = true;
 		
