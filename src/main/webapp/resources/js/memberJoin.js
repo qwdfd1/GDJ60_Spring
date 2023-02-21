@@ -82,6 +82,7 @@ formPw.addEventListener("blur", function(){
     
     let pwMsg = document.getElementById("pwMsg");
 
+ 
     checks[2] = getMsg(formPw, pwMsg, checks[2]);
 
     console.log("pwnull : ",checks[2]);
