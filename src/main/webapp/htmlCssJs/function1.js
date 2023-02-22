@@ -5,6 +5,8 @@ const d1 = document.getElementById("d1");
 let n = 'iu';
 var old = 'iu';
 
+//함수
+
 // function 선언
 function f1(){
     console.log("function Test");
@@ -22,6 +24,7 @@ function f2(n1, n2) {
 // function 호출
 f1();
 let result = f2(1,2);
+
 console.log(result);
 console.log(name);
 // console.log(n1);
@@ -56,7 +59,8 @@ d1.addEventListener("click", function(){
 });
 
 
-//어디선가 선언만 되어있으면 코드 순서는 상관없다
+
+// 어디선가 선언만 되어있으면 코드 순서는 상관없다
 function callback1() {
     console.log("CallBack1");
 }

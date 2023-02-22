@@ -18,27 +18,30 @@
 		</div>
 		
 		<div class="row col-md-8 mx-auto border-bottom ">
-			<form action="./add" method="post">
+			<form action="./add" method="post" enctype="multipart/form-data">
 			
 				<div class="row mb-3">
-				  <label for="exampleFormControlInput1" class="col-sm-1 col-form-label">상품명</label>
+				  <label for="bookName" class="col-sm-1 col-form-label">상품명</label>
 				  <div class="col-sm-10">
-				  	<input type="text" class="form-control" name="bookName" id="exampleFormControlInput1" placeholder="상품명 입력">
+				  	<input type="text" class="form-control" name="bookName" id="bookName" placeholder="상품명 입력">
 				  </div>
 				</div>
 				
 				<div class="row mb-3">
-				  <label for="exampleFormControlInput2" class="col-sm-1 col-form-label">이자율 </label>
+				  <label for="bookRate" class="col-sm-1 col-form-label">이자율 </label>
 				  <div class="col-sm-10">
-				  	<input type="text" class="form-control" name="bookRate" id="exampleFormControlInput2" placeholder="ex) 1.2 ...">
+				  	<input type="text" class="form-control" name="bookRate" id="bookRate" placeholder="ex) 1.2 ...">
 				  </div>
 				</div>
 				
-				<div class="row mb-3">
-				  <label for="exampleFormControlInput3" class="col-sm-1 col-form-label">Image </label>
-				  <div class="col-sm-10">
-				  	<input type="file" class="form-control" name="pic" id="exampleFormControlInput3" placeholder="ex) 1.2 ...">
-				  </div>
+				<div id="fileList">
+					<!-- <div class="row mb-3">
+					<label for="files" class="col-sm-1 col-form-label">Image </label>
+					<div class="col-sm-10">
+						<input type="file" class="form-control" name="pic" id="files">
+					</div>
+					</div> -->
+					<button type="button" id="button">Add</button>
 				</div>
 				
 				
@@ -62,8 +65,8 @@
 				
 
 				<div class="mb-5">
-				  <label for="exampleFormControlTextarea1" class="form-label">상세 설명</label>
-				  <textarea class="form-control" name="bookDetail" id="exampleFormControlTextarea1" rows="3"></textarea>
+				  <label for="bookDetail" class="form-label">상세 설명</label>
+				  <textarea class="form-control" name="bookDetail" id="bookDetail" rows="3"></textarea>
 				</div>
 				
 				
@@ -74,6 +77,16 @@
 			</form>
 		</div>
 	</div>
+
+
+	<script src="../resources/js/fileManager.js"></script>
+	<script>
+		setMax(3);
+		// setParam('f')
+	</script>
+
 	<c:import url="../template/common_js.jsp"></c:import>	
+	
+	
 </body>
 </html>

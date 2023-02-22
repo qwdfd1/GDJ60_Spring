@@ -63,7 +63,7 @@ formPw.addEventListener("keyup", function(){
 
     if(formPw.value.length > 5 && formPw.value.length < 13) {
         checks[1] = true;
-        pwMsg.innerText = '정상'
+        pwMsg.innerText = '정상 입력'
         pwMsg.classList.add("blueResult");
         pwMsg.classList.remove("redResult");
         
@@ -82,8 +82,9 @@ formPw.addEventListener("blur", function(){
     
     let pwMsg = document.getElementById("pwMsg");
 
- 
-    checks[2] = getMsg(formPw, pwMsg, checks[2]);
+    if(checks[1]) {
+        checks[2] = getMsg(formPw, pwMsg, checks[2]);
+    }
 
     console.log("pwnull : ",checks[2]);
     
