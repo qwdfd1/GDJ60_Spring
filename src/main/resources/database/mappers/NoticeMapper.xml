@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.onion.s1.board.notice.NoticeDAO">
+ 
+ 	<sql id="searchCondition">
+			<if test="kind == 'title'">
+				WHERE TITLE LIKE '%' || #{search} || '%'
+			</if>
+			
+			<if test="kind == 'contents'">
+				WHERE CONTENTS LIKE '%' || #{search} || '%'
+			</if>
+			
+			<if test="kind == 'writer'">
+				WHERE CONTENTS LIKE '%' || #{search} || '%'
+			</if>
+ 	</sql>
+ 	
+ 	<select id="getTotalCount" parameterType="Pager" resultType="Long">
+ 	
+ 		SELECT COUNT(NUM) FROM NOTICE	
+ 		<include refid="searchCondition"></include>
+		
+ 	</select>
+ 	
+ 	<select id="getBoardList" parameterType="Pager" resultType="NoticeDTO">
+ 		
+ 		SELECT * FROM
+ 		(
+	 		SELECT ROWNUM R, N.* FROM
+		 		(
+			 		SELECT NUM, TITLE, WRITER, REGDATE, HIT FROM NOTICE
+					 <include refid="searchCondition"></include>
+					ORDER BY NUM DESC
+				) N
+		) 
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+		
+ 		
+ 	</select>
+
+ </mapper>

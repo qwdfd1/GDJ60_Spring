@@ -2,6 +2,8 @@ package com.onion.s1.util;
 
 public class Pager {
 	
+	private Long bookNumber;
+	
 	//검색 종류(사용할 Column)
 	private String kind;
 	
@@ -131,11 +133,24 @@ public class Pager {
 	}
 
 	public String getSearch() {
+		if(search == null) {
+			search = "";
+		}
 		return search;
 	}
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+	
+	
+
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+
+	public void setBookNum(Long bookNumber) {
+		this.bookNumber = bookNumber;
 	}
 
 	//startRow, lastRow 계산 메서드
@@ -163,7 +178,7 @@ public class Pager {
 		//4. 총 블럭 수
 		long totalBlock = totalPage/this.getPerBlock();
 		
-		if(totalBlock % this.getPerBlock() != 0) {
+		if(totalPage % this.getPerBlock() != 0) {
 			totalBlock++;
 		}
 		

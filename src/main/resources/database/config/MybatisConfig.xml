@@ -11,6 +11,15 @@
  		<typeAlias type="com.onion.s1.member.RoleDTO" alias="RoleDTO"/>
  		<typeAlias type="com.onion.s1.bankbook.BankBookDTO" alias="BankBookDTO"/>
  		<typeAlias type="com.onion.s1.bankbook.BankBookImgDTO" alias="BankBookImgDTO"/>
+ 		<typeAlias type="com.onion.s1.bankbook.BankBookCommentDTO" alias="BankBookCommentDTO"/>
+ 		
+ 		<typeAlias type="com.onion.s1.board.BbsDTO" alias="BbsDTO"/>
+ 		<typeAlias type="com.onion.s1.board.BoardDTO" alias="BoardDTO"/>
+ 		<typeAlias type="com.onion.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
+ 		<typeAlias type="com.onion.s1.board.qna.QnaDTO" alias="QnaDTO"/>
+ 		
+ 		
+ 		
  		
  		<typeAlias type="com.onion.s1.util.Pager" alias="Pager"/>
  		

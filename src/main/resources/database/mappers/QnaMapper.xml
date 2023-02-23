@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.onion.s1.board.qna.QnaDAO">
+
+	<sql id="searchCondition">
+		
+	</sql>
+
+	<select id="getTotalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM QNA
+		
+		<if test="kind == 'title'">
+			WHERE TITLE LIKE '%' || #{search} || '%'
+		</if>
+	
+		<if test="kind == 'contents'">
+			WHERE TITLE LIKE '%' || #{search} || '%'
+		</if>
+		
+		<if test="kind == 'writer'">
+			WHERE TITLE LIKE '%' || #{search} || '%'
+		</if>
+		
+	</select>
+	
+	<select id="getBoardList" parameterType="Pager" resultType="QnaDTO">
+		(
+			SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH FROM QNA
+			<if test="kind == 'title'">
+				WHERE TITLE LIKE '%' || #{search} || '%'
+			</if>
+		
+			<if test="kind == 'contents'">
+				WHERE TITLE LIKE '%' || #{search} || '%'
+			</if>
+			
+			<if test="kind == 'writer'">
+				WHERE TITLE LIKE '%' || #{search} || '%'
+			</if>
+			ORDER BY NUM DESC
+		) Q
+		
+		
+		
+	</select>
+	
+	 	
+
+ 	
+ </mapper>
