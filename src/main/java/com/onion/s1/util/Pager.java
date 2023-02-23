@@ -131,7 +131,11 @@ public class Pager {
 	}
 
 	public String getSearch() {
-		return search;
+		if(search == null) {
+			search = "";
+		}
+		
+		return search;	//"%" + search + "%";
 	}
 
 	public void setSearch(String search) {
@@ -155,6 +159,7 @@ public class Pager {
 			totalPage++;
 		}
 		
+		
 		if(this.getPage() > totalPage) {
 			this.setPage(totalPage);
 		}
@@ -163,7 +168,7 @@ public class Pager {
 		//4. 총 블럭 수
 		long totalBlock = totalPage/this.getPerBlock();
 		
-		if(totalBlock % this.getPerBlock() != 0) {
+		if(totalPage % this.getPerBlock() != 0) {
 			totalBlock++;
 		}
 		
@@ -180,6 +185,7 @@ public class Pager {
 
 		this.after = true;
 		
+		// 현재 블럭과 총 블럭이 같으면 총 페이지값이 해당 블럭의 페이지 끝 번호
 		if(curBlock == totalBlock) {
 			lastNum = totalPage;
 			this.after = false;
@@ -188,6 +194,8 @@ public class Pager {
 		if(curBlock == 1) {
 			this.before = true;
 		}
+		
+
 
 	}
 	

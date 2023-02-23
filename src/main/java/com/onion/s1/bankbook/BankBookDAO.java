@@ -18,6 +18,7 @@ public class BankBookDAO {
 	
 	public Long getBankBookCount(Pager pager) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getBankBookCount",pager);
+				
 	}
 	
 	public List<BankBookDTO> getBankBookList(Pager pager) throws Exception {

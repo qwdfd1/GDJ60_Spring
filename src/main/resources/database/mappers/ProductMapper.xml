@@ -20,7 +20,7 @@
   
   <insert id="setProductAdd" parameterType="ProductDTO" >
   	INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
-	VALUES ( #{productNum}, #{productName}, #{productDetail}, 0.0)
+	VALUES ( #{productNum}, #{productName}, #{productDetail}, #{productJumsu})
   </insert>
   
   <delete id="setProductDelete" parameterType="Long">

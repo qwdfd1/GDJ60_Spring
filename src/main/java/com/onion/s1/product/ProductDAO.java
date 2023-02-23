@@ -34,7 +34,7 @@ public class ProductDAO {
 	
 	public Long getProductNum() throws Exception{
 		
-		return sqlSession.selectOne(NAMESPACE + "setProductNum");
+		return sqlSession.selectOne(NAMESPACE + "getProductNum");
 	}
 	
 	public List<ProductOptionDTO> getProductOptionList () throws Exception {

@@ -18,6 +18,7 @@ public class BankBookService {
 		
 		Long totalCount = bankBookDAO.getBankBookCount(pager);
 		
+		
 		pager.makeNum(totalCount);
 		pager.makeRow();
 		

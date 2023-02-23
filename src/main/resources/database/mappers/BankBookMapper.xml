@@ -6,8 +6,17 @@
   <mapper namespace="com.onion.s1.bankbook.BankBookDAO">
   
   	<select id="getBankBookCount" parameterType="Pager" resultType="Long">
-  		SELECT COUNT(BOOKNUMBER)  
-		FROM BANKBOOK
+  		SELECT COUNT(BOOKNUMBER)  FROM BANKBOOK 
+  		
+  		<if test="kind == 'contents'">
+  			WHERE	BOOKDETAIL LIKE '%' || #{search} || '%'
+  		</if>
+  		
+  		<if test="kind == 'title'">
+  			WHERE	BOOKNAME LIKE '%' || #{search} || '%'
+  		</if>
+		
+		
   	</select>
   
   	<select id="getBankBookList" parameterType="Pager" resultType="BankBookDTO">
@@ -16,6 +25,20 @@
 				SELECT ROWNUM R, B.* FROM 
 				(
 					SELECT * FROM BANKBOOK 
+					
+					WHERE 
+					
+					<choose>
+						<when test="kind == 'contents'">
+							BOOKDETAIL
+						</when>
+						<otherwise>
+							BOOKNAME
+						</otherwise>
+					</choose>
+					
+					LIKE '%' || #{search} || '%'
+					
 					ORDER BY BOOKNUMBER DESC
 				) B	
 			) 
