@@ -6,12 +6,6 @@
  <mapper namespace="com.onion.s1.board.qna.QnaDAO">
 
 	<sql id="searchCondition">
-		
-	</sql>
-
-	<select id="getTotalCount" parameterType="Pager" resultType="Long">
-		SELECT COUNT(NUM) FROM QNA
-		
 		<if test="kind == 'title'">
 			WHERE TITLE LIKE '%' || #{search} || '%'
 		</if>
@@ -23,29 +17,54 @@
 		<if test="kind == 'writer'">
 			WHERE TITLE LIKE '%' || #{search} || '%'
 		</if>
+	</sql>
+
+	<select id="getTotalCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM QNA
+	<include refid="searchCondition"></include>
+		
+
 		
 	</select>
 	
 	<select id="getBoardList" parameterType="Pager" resultType="QnaDTO">
+	SELECT * FROM 
 		(
-			SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH FROM QNA
-			<if test="kind == 'title'">
-				WHERE TITLE LIKE '%' || #{search} || '%'
-			</if>
+			SELECT ROWNUM R, Q.* FROM
+				(
+					SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH FROM QNA
+					<include refid="searchCondition"></include>
+					ORDER BY REF DESC, STEP ASC
+				) Q
+				
+		)
 		
-			<if test="kind == 'contents'">
-				WHERE TITLE LIKE '%' || #{search} || '%'
-			</if>
-			
-			<if test="kind == 'writer'">
-				WHERE TITLE LIKE '%' || #{search} || '%'
-			</if>
-			ORDER BY NUM DESC
-		) Q
-		
-		
+	WHERE R BETWEEN ${startRow} AND ${lastRow}
 		
 	</select>
+	
+	
+	<insert id="setBoardAdd" parameterType="BbsDTO">
+		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+		VALUES (#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{num}, 0 , 0)
+	</insert>
+	
+	<select id="getBoardDetail" parameterType="BoardDTO" resultType="QnaDTO">
+		SELECT * FROM QNA WHERE NUM = #{num}
+	</select>
+	
+	<update id="setStepUpdate" parameterType="QnaDTO">
+		UPDATE QNA SET STEP = STEP + 1
+		WHERE REF = #{ref} AND STEP > #{step}
+	</update>
+	
+	<insert id="setReplyAdd" parameterType="QnaDTO">
+		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{ref}, #{step} , #{depth})
+	</insert>
 	
 	 	
 

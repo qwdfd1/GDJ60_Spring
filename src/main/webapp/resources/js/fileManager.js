@@ -22,7 +22,7 @@ button.addEventListener("click", function(){
         return;
     }
 
-        count++;
+        
 
         //Element, Text 생성
         let div1 = document.createElement('div');
@@ -30,8 +30,10 @@ button.addEventListener("click", function(){
         let text = document.createTextNode('Image');
         let div2 = document.createElement('div');
         let input = document.createElement('input');
+        let delBtn = document.createElement('button');
 
         div2.appendChild(input);
+        div2.appendChild(delBtn);
         label.appendChild(text);
         div1.appendChild(label);
         div1.appendChild(div2);
@@ -55,7 +57,7 @@ button.addEventListener("click", function(){
 
         //div2
         attr = document.createAttribute('class');
-        attr.value = 'col-sm-10';
+        attr.value = 'input-group mb-3 col-sm-10';
         div2.setAttributeNode(attr);
 
         //label
@@ -74,9 +76,45 @@ button.addEventListener("click", function(){
         attr.value = 'row mb-3';
         div1.setAttributeNode(attr);
 
+        attr = document.createAttribute("type");
+        attr.value = 'button';
+        delBtn.setAttributeNode(attr);
+
+        attr = document.createAttribute('id');
+        attr.value = 'd'+count;
+        div1.setAttributeNode(attr);
+
+
+        //Delete
+        let n = document.createTextNode("X");
+        delBtn.appendChild(n);
+
+        attr = document.createAttribute("class");
+        attr.value = "dels btn btn-outline-primary";
+        delBtn.setAttributeNode(attr);
+
+        attr = document.createAttribute("type");
+        attr.value = 'button';
+        delBtn.setAttributeNode(attr);
+
+        attr = document.createAttribute("data-delete-id");
+        attr.value = 'd'+count;
+        delBtn.setAttributeNode(attr);
+
 
         fileList.prepend(div1);
 
+        count++;
 
+})
+
+fileList.addEventListener("click", function(e){
+    // console.log(e.target);
+    if(e.target.classList.contains("dels")) {
+        let id = e.target.getAttribute("data-delete-id");
+        console.log(id)
+        document.getElementById(id).remove();
+        count--;
+    }
 })
 

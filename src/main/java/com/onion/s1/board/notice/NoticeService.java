@@ -15,7 +15,7 @@ import com.onion.s1.util.Pager;
 public class NoticeService implements BoardService{
 	
 	@Autowired
-	private BbsDAO noticeDAO;
+	private NoticeDAO noticeDAO;
 
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
@@ -29,8 +29,7 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return noticeDAO.setBoardAdd(bbsDTO);
 	}
 
 	@Override
@@ -47,8 +46,7 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return noticeDAO.getBoardDetail(boardDTO);
 	}
 	
 	

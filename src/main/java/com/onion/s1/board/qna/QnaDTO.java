@@ -1,6 +1,8 @@
 package com.onion.s1.board.qna;
 
-public class QnaDTO {
+import com.onion.s1.board.BoardDTO;
+
+public class QnaDTO extends BoardDTO{
 	private Long ref;
 	private Long step;
 	private Long depth;

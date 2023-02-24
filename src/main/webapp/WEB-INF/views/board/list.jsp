@@ -13,11 +13,16 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container-fluid">
+	
+	<div class="row my-5">
+		<h1>${boardName} Page</h1>
+	</div>
+
 	<div class="row">
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
-					<th>Num</th>
+					<th>num</th>
 					<th>title</th>
 					<th>writer</th>
 					<th>regDate</th>
@@ -29,7 +34,14 @@
 				<c:forEach  items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td>${dto.title}</td>
+						<td>
+						<!-- Notice에는 depth가 없어서 Exception 발생 -->
+						<c:catch>
+							<c:forEach begin="1" end="${dto.depth}" varStatus="s">
+							--<c:if test="${s.last}">></c:if>
+							</c:forEach>
+						</c:catch>
+						<a href="./detail?num=${dto.num}"> ${dto.title}</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
@@ -94,7 +106,11 @@
 			  <div class="col-auto">
 			    <button type="submit" class="btn btn-primary mb-3">검색</button>
 			  </div>
-			</form>		
+			</form>
+			
+			<div class="col-auto offset-md-3">
+				<a href="./add" class="btn btn-primary"> 글 쓰기</a>
+			</div>		
 		
 		</div>
 </div>

@@ -35,5 +35,19 @@ public class QnaDAOTest extends MyTestCase{
 		assertNotEquals(0, result);
 
 	}
+	
+	@Test
+	public void setBoardAdd() throws Exception {
+		QnaDTO qnaDTO = new QnaDTO();
+		qnaDTO.setTitle("환불 요청");
+		qnaDTO.setWriter("석주");
+		qnaDTO.setContents("너무 작아용");
+		
+		assertEquals(1, qnaDAO.setBoardAdd(qnaDTO)); 
+		
+		
+	}
+	
+
 
 }
