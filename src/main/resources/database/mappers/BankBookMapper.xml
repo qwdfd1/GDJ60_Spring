@@ -5,9 +5,24 @@
   
   <mapper namespace="com.onion.s1.bankbook.BankBookDAO">
   
+  	<sql id="searchCondition">
+  		
+  		<where>
+	  		<if test="kind == 'contents'">
+	  			BOOKDETAIL LIKE '%' || #{search} || '%'
+	  		</if>
+	  		
+	  		<if test="kind == 'title'">
+				BOOKNAME LIKE '%' || #{search} || '%'  		
+	  		</if>
+  		</where>
+  	
+  	</sql>
+  
   	<select id="getBankBookCount" parameterType="Pager" resultType="Long">
   		SELECT COUNT(BOOKNUMBER)  
 		FROM BANKBOOK
+		<include refid="searchCondition"></include>
   	</select>
   
   	<select id="getBankBookList" parameterType="Pager" resultType="BankBookDTO">
@@ -15,7 +30,8 @@
 			(
 				SELECT ROWNUM R, B.* FROM 
 				(
-					SELECT * FROM BANKBOOK 
+					SELECT * FROM BANKBOOK
+					<include refid="searchCondition"></include> 
 					ORDER BY BOOKNUMBER DESC
 				) B	
 			) 

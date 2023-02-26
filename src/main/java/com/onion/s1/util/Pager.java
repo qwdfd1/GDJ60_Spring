@@ -203,6 +203,8 @@ public class Pager {
 		if(curBlock == 1) {
 			this.before = true;
 		}
+		
+		System.out.println(totalPage);
 
 	}
 	

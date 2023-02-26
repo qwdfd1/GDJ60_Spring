@@ -7,7 +7,7 @@ for (let p of pl) {
         e.preventDefault();
         let attr =this.getAttribute("data-board-page");
         console.log(attr);
-        page.value = attr;
+        page.value = attr.value;
         searchForm.submit();
     })
 }

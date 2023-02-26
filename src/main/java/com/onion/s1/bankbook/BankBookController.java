@@ -56,7 +56,10 @@ public class BankBookController {
 	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, HttpSession session) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
+		System.out.println(pic.getName());
+		System.out.println(pic.getOriginalFilename());
+//		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
+		
 		
 	
 		
