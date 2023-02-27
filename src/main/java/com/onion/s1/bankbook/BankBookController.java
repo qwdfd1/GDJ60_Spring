@@ -1,5 +1,6 @@
 package com.onion.s1.bankbook;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,8 @@ public class BankBookController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pic.getName());
 		System.out.println(pic.getOriginalFilename());
-//		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
+		System.out.println("servletContext : " + session.getServletContext());
+		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
 		
 		
 	

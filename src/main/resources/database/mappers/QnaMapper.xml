@@ -63,10 +63,10 @@
 	
 	<select id="getBoardDetail" parameterType="BoardDTO" resultMap="getBoardDetailResult">
 		SELECT * FROM QNA
-	LEFT JOIN 
-	QNAFILES 
-	USING (NUM)
-	WHERE NUM = #{num}
+		LEFT JOIN 
+		QNAFILES 
+		USING (NUM)
+		WHERE NUM = #{num}
 	</select>
 	
 	<resultMap type="QnaDTO" id="getBoardDetailResult">

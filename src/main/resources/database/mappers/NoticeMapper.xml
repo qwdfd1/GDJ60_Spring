@@ -44,9 +44,18 @@
  	</select>
  	
  	<insert id="setBoardAdd" parameterType="BbsDTO">
+ 		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+ 			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
  		INSERT INTO NOTICE (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT)
- 		VALUES (NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0)
+ 		VALUES (#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0)
  	</insert>
+ 	
+ 	<insert id="setBoardFileAdd" parameterType="BoardFileDTO">
+		INSERT INTO NOTICEFILES (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES(NOTICE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+ 	</insert>
+ 	
  	
  	<select id="getBoardDetail" parameterType="BoardDTO" resultMap="getBoardDetailResult">
  		SELECT * FROM NOTICE

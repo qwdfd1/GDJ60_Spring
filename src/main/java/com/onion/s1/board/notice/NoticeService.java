@@ -11,7 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.onion.s1.board.BbsDAO;
 import com.onion.s1.board.BbsDTO;
 import com.onion.s1.board.BoardDTO;
+import com.onion.s1.board.BoardFileDTO;
 import com.onion.s1.board.BoardService;
+import com.onion.s1.util.FileManager;
 import com.onion.s1.util.Pager;
 
 @Service
@@ -19,6 +21,9 @@ public class NoticeService implements BoardService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
+	@Autowired
+	private FileManager fileManager;
 
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
@@ -44,13 +49,31 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] files, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+			int result = noticeDAO.setBoardAdd(bbsDTO);
+			
+			String realPath = session.getServletContext().getRealPath("resources/upload/notice/");
+			
+			for (MultipartFile multipartFile : files) {
+				if(multipartFile.isEmpty()) {
+					continue;
+				}
+				String fileName = fileManager.fileSave(multipartFile, realPath);
+				
+				BoardFileDTO boardFileDTO = new BoardFileDTO();
+				boardFileDTO.setNum(bbsDTO.getNum());
+				boardFileDTO.setFileName(fileName);
+				boardFileDTO.setOriName(multipartFile.getOriginalFilename());
+				
+				result = noticeDAO.setBoardFileAdd(boardFileDTO);
+				
+			}
+			
+		return result;
 	}
 
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
+//		List<BoardFileDTO> ar = notie
 		return 0;
 	}
 	

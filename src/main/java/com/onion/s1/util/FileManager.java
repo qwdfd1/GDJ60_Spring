@@ -38,6 +38,7 @@ public class FileManager {
 		//2. 저장관리는 OS(windows)가 담당한다
 		// -> 이런 문제를 해결하기 위해 이 프로젝트와 OS의 통신이 필요한데 이것을 담당하는 내장객체가 Application이다(단, java에서는 ServletContext 타입)
 		
+		//폴더경로의 정보만 가지고있는  File객체 
 		File file = new File(path);
 		
 		//폴더가 존재하지 않으면 폴더 생성
