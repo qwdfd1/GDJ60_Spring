@@ -90,7 +90,7 @@ button.addEventListener("click", function(){
         delBtn.appendChild(n);
 
         attr = document.createAttribute("class");
-        attr.value = "dels btn btn-outline-primary";
+        attr.value = "dels btn btn-outline-danger";
         delBtn.setAttributeNode(attr);
 
         attr = document.createAttribute("type");
@@ -111,9 +111,10 @@ button.addEventListener("click", function(){
 fileList.addEventListener("click", function(e){
     // console.log(e.target);
     if(e.target.classList.contains("dels")) {
-        let id = e.target.getAttribute("data-delete-id");
-        console.log(id)
-        document.getElementById(id).remove();
+        e.target.parentNode.parentNode.remove();
+        // let id = e.target.getAttribute("data-delete-id");
+        // console.log(id)
+        // document.getElementById(id).remove();
         count--;
     }
 })

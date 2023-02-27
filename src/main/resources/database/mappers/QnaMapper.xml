@@ -6,17 +6,21 @@
  <mapper namespace="com.onion.s1.board.qna.QnaDAO">
 
 	<sql id="searchCondition">
-		<if test="kind == 'title'">
-			WHERE TITLE LIKE '%' || #{search} || '%'
-		</if>
 	
-		<if test="kind == 'contents'">
-			WHERE TITLE LIKE '%' || #{search} || '%'
-		</if>
+		<where>
+			<if test="kind == 'title'">
+				TITLE LIKE '%' || #{search} || '%'
+			</if>
 		
-		<if test="kind == 'writer'">
-			WHERE TITLE LIKE '%' || #{search} || '%'
-		</if>
+			<if test="kind == 'contents'">
+				TITLE LIKE '%' || #{search} || '%'
+			</if>
+			
+			<if test="kind == 'writer'">
+				TITLE LIKE '%' || #{search} || '%'
+			</if>
+		</where>
+		
 	</sql>
 
 	<select id="getTotalCount" parameterType="Pager" resultType="Long">
@@ -52,9 +56,38 @@
 		VALUES (#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{num}, 0 , 0)
 	</insert>
 	
-	<select id="getBoardDetail" parameterType="BoardDTO" resultType="QnaDTO">
-		SELECT * FROM QNA WHERE NUM = #{num}
+	<insert id="setBoardFileAdd" parameterType="BoardFileDTO">
+		INSERT INTO QNAFILES (FILENUM, NUM, FILENAME, ORINAME)
+		VALUES(QNA_SEQ.NEXTVAL ,#{num}, #{fileName}, #{oriName})
+	</insert>
+	
+	<select id="getBoardDetail" parameterType="BoardDTO" resultMap="getBoardDetailResult">
+		SELECT * FROM QNA
+	LEFT JOIN 
+	QNAFILES 
+	USING (NUM)
+	WHERE NUM = #{num}
 	</select>
+	
+	<resultMap type="QnaDTO" id="getBoardDetailResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="contents" property="contents"/>
+		<result column="writer" property="writer"/>
+		<result column="regDate" property="regDate"/>
+		<result column="hit" property="hit"/>
+		<result column="depth" property="depth"/>
+		<!-- 
+			collection : 컬렉션을 리턴할 때 쓰는 태그 
+			javaType 속성 : property의 데이터 타입
+			ofType : List의 제네릭 타입
+		-->
+		<collection property="boardFileDTOs" javaType="List" ofType="BoardFileDTO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>		
+	</resultMap>
 	
 	<update id="setStepUpdate" parameterType="QnaDTO">
 		UPDATE QNA SET STEP = STEP + 1
@@ -65,6 +98,15 @@
 		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
 		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{ref}, #{step} , #{depth})
 	</insert>
+	
+	<delete id="setBoardDelete" parameterType="BbsDTO">
+		DELETE QNA WHERE NUM = #{num}	
+	</delete>
+	
+	<select id="getBoardFileList" resultType="BoardFileDTO" parameterType="BbsDTO">
+		SELECT * FROM QNAFILES
+		WHERE NUM = #{num}
+	</select>
 	
 	 	
 

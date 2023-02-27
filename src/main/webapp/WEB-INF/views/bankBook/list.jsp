@@ -57,7 +57,7 @@
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination">
   			    <li class="page-item">
-			      <a class="page-link ${pager.before ?'disabled':''}" href="#" aria-label="Previous" data-board-page="1">
+			      <a class="page-link" href="#" aria-label="Previous" data-board-page="1">
 			        <span aria-hidden="true">&laquo;</span>
 			      </a>
 			    </li>
@@ -116,7 +116,7 @@
 
 	</div>
 	
-	<c:import url="../template/common_js.jsp"></c:import>
 	<script src="../resources/js/paging.js"></script>
+	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

@@ -52,6 +52,17 @@
 				  <textarea class="form-control" name="contents" id="contents" rows="8"></textarea>
 				</div>
 				
+				<div id="fileList" class="my-5">
+<!-- 					<div class="row mb-3">
+							<label for="files" class="col-sm-1 col-form-label">Image </label>
+							<div class="col-sm-10">
+								<input type="file" class="form-control" name="pic" id="files">
+								<button type="button">X</button>
+						</div>
+					</div>   -->
+					<button class="btn btn-primary" type="button" id="button" >Add</button>
+				</div> 
+				
 				
 				<div class="row mt-5 mb-3 col-md-1 offset-md-11">
 					<button class="btn btn-primary " type="submit">글 쓰기</button>
@@ -62,12 +73,12 @@
 	</div>
 
 
-	<!-- <script src="../resources/js/fileManager.js"></script> -->
 	<script>
-		// setMax(3); 
-		// setParam('f')
+		 setMax(3); 
+		 setParam("files")
 	</script>
-
+	
+	 <script src="../resources/js/fileManager.js"></script> 
 	<c:import url="../template/common_js.jsp"></c:import>	
 	
 	

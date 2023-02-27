@@ -15,9 +15,13 @@
 	<div class="row">
 			<h1> ${boardName} Detail Page</h1>
 			
-			<h3>통장 번호 : ${dto.title}</h3>
-			<h3>통장 이름 : ${dto.writer}</h3>
-			<h3>이자율 : ${dto.contents}</h3>
+			<h3>제목 : ${dto.title}</h3>
+			<h3>작성자 : ${dto.writer}</h3>
+			<h3>글 내용 : ${dto.contents}</h3>
+			
+			<c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
+				<a href="./fileDown?fileNum=${fileDTO.fileNum}">${fileDTO.oriName}</a>
+			</c:forEach>
 			
 			
 <%-- 		<c:if test="${not empty dto.bankBookImgDTO}">
@@ -27,27 +31,36 @@
 		</c:if> --%>
 			
 			<div class="row">
-				<c:if test="${boardName ne 'notice'}">		
-					<a href="./reply?num=${dto.num}" class="btn btn-primary col-md-2 mx-2 my-2">답글</a>
-				</c:if>		 
+				<div class="col-md-8">
+					<c:if test="${boardName ne 'notice'}">		
+						<a href="./reply?num=${dto.num}" class="btn btn-primary col-md-2 mx-2 my-2">답글</a>
+					</c:if>
+				</div>		 
 			</div>
 	</div>
-
-	
-
-
 
 
 
 	<div class="row">
 		<div class="col-md-8">
-			<a href="./delete?num=${dto.num}" class="btn btn-primary col-md-2 mx-2">상품 삭제</a>
-			
-			<a href="./list" class="btn btn-primary col-md-2 mx-1">목록으로</a>
-			<a href="./update?num=${dto.num}" class="btn btn-primary col-md-2 mx-2">상품 수정</a>
-		</div>	
+			<form action="./update" id="frm">
+				<input type="hidden" name="num" value="${dto.num}">
+					
+				<button type="submit" class="btn btn-primary col-md-2 mx-2" id="update">상품 수정</button>
+
+				<button type="button" class="btn btn-primary col-md-2 mx-2" id="delete">상품 삭제</button>
+			</form>
+		</div>
+		
+		<a href="./list" class="btn btn-primary col-md-2 mx-1">목록으로</a>	
+		
+		<!-- delete시엔 post방식 update시엔 get -->
+		<div>
+
+		</div>
 	</div>
 </div>
+	<script type="text/javascript" src="../resources/js/boardForm.js"></script>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

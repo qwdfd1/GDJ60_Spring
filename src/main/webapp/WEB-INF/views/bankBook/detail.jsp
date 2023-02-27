@@ -22,11 +22,11 @@
 			<h3>판매 여부 : ${bankBookDTO.bookSale}</h3>
 			<h3>통장 상세내용 : ${bankBookDTO.bookDetail}</h3>
 		</c:when>
-		<c:if test="${not empty bankBookDTO.bankBookImgDTO}">
+		<c:when test="${not empty bankBookDTO.bankBookImgDTO}">
 			<div>
 				<img href="../resources/upload/bankBook/${bankBookDTO.bankBookImgDTO.fileName}"></a>
 			</div>
-		</c:if>
+		</c:when>
 
 		
 		<c:otherwise>

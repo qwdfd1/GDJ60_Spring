@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.onion.s1.board.BbsDTO;
 import com.onion.s1.board.BoardDAO;
 import com.onion.s1.board.BoardDTO;
+import com.onion.s1.board.BoardFileDTO;
 import com.onion.s1.util.Pager;
 
 @Repository
@@ -53,5 +54,19 @@ public class NoticeDAO implements BoardDAO {
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getBoardDetail", boardDTO);
 	}
+
+	@Override
+	public int setBoardFileAdd(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }

@@ -15,6 +15,7 @@
  		
  		<typeAlias type="com.onion.s1.board.BbsDTO" alias="BbsDTO"/>
  		<typeAlias type="com.onion.s1.board.BoardDTO" alias="BoardDTO"/>
+ 		<typeAlias type="com.onion.s1.board.BoardFileDTO" alias="BoardFileDTO"/>
  		<typeAlias type="com.onion.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
  		<typeAlias type="com.onion.s1.board.qna.QnaDTO" alias="QnaDTO"/>
  		

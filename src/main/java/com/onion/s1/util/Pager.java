@@ -204,7 +204,6 @@ public class Pager {
 			this.before = true;
 		}
 		
-		System.out.println(totalPage);
 
 	}
 	

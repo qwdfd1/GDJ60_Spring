@@ -1,5 +1,7 @@
 package com.onion.s1.board;
 
+import java.util.List;
+
 public interface BoardDAO extends BbsDAO{
 	
 	//list
@@ -9,7 +11,11 @@ public interface BoardDAO extends BbsDAO{
 	
 	//add
 	
+	//fileAdd
+	public int setBoardFileAdd(BoardFileDTO boardFileDTO) throws Exception;
+	
 	//update
 	
 	//delete
+	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception;
 }

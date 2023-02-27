@@ -4,10 +4,9 @@ const page = document.getElementById("page");
 
 for (let p of pl) {
     p.addEventListener("click", function(e){
-        e.preventDefault();
-        let attr =this.getAttribute("data-board-page");
-        console.log(attr);
-        page.value = attr.value;
+        let attr = this.getAttribute("data-board-page");
+        page.value = attr;
+        console.log(page.value);
         searchForm.submit();
     })
 }
