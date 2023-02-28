@@ -44,6 +44,9 @@ public class MemberController {
 		memberDTO = memberService.getMemberLogin(memberDTO);
 		if(memberDTO != null) {
 			session.setAttribute("member", memberDTO);
+			
+			
+			
 		}
 		
 		ModelAndView mv = new ModelAndView();

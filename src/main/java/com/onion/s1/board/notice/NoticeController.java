@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.onion.s1.board.BbsService;
 import com.onion.s1.board.BoardDTO;
 import com.onion.s1.board.BoardFileDTO;
+import com.onion.s1.member.MemberDTO;
 import com.onion.s1.util.Pager;
 
 @Controller
@@ -43,9 +44,8 @@ public class NoticeController {
 	}
 	
 	@GetMapping("add")
-	public ModelAndView setBoardAdd() throws Exception {
+	public ModelAndView setBoardAdd(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
 		mv.setViewName("board/add");
 		return mv;
 	}

@@ -23,6 +23,7 @@
 				<h1>연락처 : ${dto.phone}</h1>
 				<h1>Email : ${dto.email}</h1>
 				<h1>주소 : ${dto.address}</h1>
+				<h1>회원등급 : ${dto.roleDTO.roleName}</h1>				
 				<a class="btn btn-info" href="./memberUpdate">회원정보 수정</a>
 		</div>
 	</div>

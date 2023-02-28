@@ -16,7 +16,15 @@
 			<h1> ${boardName} Detail Page</h1>
 			
 			<h3>제목 : ${dto.title}</h3>
-			<h3>작성자 : ${dto.writer}</h3>
+			<c:choose>
+				<c:when test="${boardName eq 'notice'}">
+					<h3>작성자 : 관리자</h3>	
+				</c:when>
+				<c:otherwise>
+					<h3>작성자 : ${dto.writer}</h3>
+				</c:otherwise>
+			</c:choose>
+			
 			<h3>글 내용 : ${dto.contents}</h3>
 			
 			<c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
@@ -41,16 +49,19 @@
 
 
 
-	<div class="row">
-		<div class="col-md-8">
-			<form action="./update" id="frm">
-				<input type="hidden" name="num" value="${dto.num}">
-					
-				<button type="submit" class="btn btn-primary col-md-2 mx-2" id="update">상품 수정</button>
 
-				<button type="button" class="btn btn-primary col-md-2 mx-2" id="delete">상품 삭제</button>
-			</form>
-		</div>
+	<div class="row">
+		<c:if test="${member.id eq dto.writer}">
+			<div class="col-md-8">
+				<form action="./update" id="frm">
+					<input type="hidden" name="num" value="${dto.num}">
+						
+					<button type="submit" class="btn btn-primary col-md-2 mx-2" id="update">글 수정</button>
+	
+					<button type="button" class="btn btn-primary col-md-2 mx-2" id="delete">글 삭제</button>
+				</form>
+			</div>
+		</c:if>
 		
 		<a href="./list" class="btn btn-primary col-md-2 mx-1">목록으로</a>	
 		

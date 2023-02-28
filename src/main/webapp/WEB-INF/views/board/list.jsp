@@ -42,7 +42,16 @@
 							</c:forEach>
 						</c:catch>
 						<a href="./detail?num=${dto.num}"> ${dto.title}</a></td>
-						<td>${dto.writer}</td>
+						
+						<c:choose>
+							<c:when test="${boardName eq 'notice'}">
+								<td>관리자</td>	
+							</c:when>
+							<c:otherwise>
+								<td>${dto.writer}</td>
+							</c:otherwise>
+						</c:choose>
+						
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
 					<tr>
@@ -108,9 +117,19 @@
 			  </div>
 			</form>
 			
-			<div class="col-auto offset-md-3">
-				<a href="./add" class="btn btn-primary"> 글 쓰기</a>
-			</div>		
+			<c:if test="${not empty member}">
+				<c:if test="${boardName eq 'notice' and member.roleDTO.roleName eq 'ADMIN'}">
+					<div class="col-auto offset-md-3">
+						<a href="./add" class="btn btn-primary"> 글 쓰기</a>
+					</div>		
+				</c:if>
+				
+				<c:if test="${boardName ne 'notice'}">
+					<div class="col-auto offset-md-3">
+						<a href="./add" class="btn btn-primary"> 글 쓰기</a>
+					</div>					
+				</c:if>
+			</c:if>
 		
 		</div>
 </div>

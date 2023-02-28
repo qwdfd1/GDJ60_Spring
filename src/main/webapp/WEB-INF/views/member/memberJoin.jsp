@@ -69,7 +69,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="formPwCk">Check Password</label>
-                      <input type="password" id="formPwCk" name="pw" class="form-control" />
+                      <input type="password" id="formPwCk" name="pwCheck" class="form-control" />
                       <label class="form-label" for="formPwCk" id="pwCkMsg"></label>
                       
                     </div>
