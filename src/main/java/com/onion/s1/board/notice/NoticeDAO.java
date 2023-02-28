@@ -65,6 +65,13 @@ public class NoticeDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getBoardFileDetail", boardFileDTO);
+	}
+	
+	
 	
 	
 

@@ -76,6 +76,13 @@ public class NoticeService implements BoardService{
 //		List<BoardFileDTO> ar = notie
 		return 0;
 	}
+
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		return noticeDAO.getBoardFileDetail(boardFileDTO);
+	}
+	
+	
 	
 	
 	

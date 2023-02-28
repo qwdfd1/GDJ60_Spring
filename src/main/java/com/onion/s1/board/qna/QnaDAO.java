@@ -76,4 +76,12 @@ public class QnaDAO implements BoardDAO {
 		return sqlSession.insert(NAMESPACE + "setReplyAdd", qnaDTO);
 	}
 
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getBoardFileDetail", boardFileDTO);
+	}
+	
+	
+	
+
 }

@@ -41,8 +41,9 @@ public class BankBookController {
 		mv.setViewName("bankBook/detail");
 		mv.addObject("bankBookDTO", bankBookService.getBankBookDetail(bankBookDTO));
 		
-		System.out.println("getbankBookDetail");
 		
+		
+		System.out.println("getbankBookDetail");
 		
 		
 		return mv;

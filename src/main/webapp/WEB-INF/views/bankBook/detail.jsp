@@ -21,12 +21,16 @@
 			<h3>이자율 : ${bankBookDTO.bookRate}</h3>
 			<h3>판매 여부 : ${bankBookDTO.bookSale}</h3>
 			<h3>통장 상세내용 : ${bankBookDTO.bookDetail}</h3>
+			<c:choose>
+				<c:when test="${not empty bankBookDTO.bankBookImgDTO}">
+
+					<div>
+						<a href="../resources/upload/bankBook/${bankBookDTO.bankBookImgDTO.fileName}">${bankBookDTO.bankBookImgDTO.oriName}</a>
+					</div>
+				</c:when>
+			</c:choose>
 		</c:when>
-		<c:when test="${not empty bankBookDTO.bankBookImgDTO}">
-			<div>
-				<img href="../resources/upload/bankBook/${bankBookDTO.bankBookImgDTO.fileName}"></a>
-			</div>
-		</c:when>
+	
 
 		
 		<c:otherwise>

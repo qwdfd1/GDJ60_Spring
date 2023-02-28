@@ -87,6 +87,7 @@ public class QnaController {
 		
 	}
 	
+	
 	@GetMapping("reply")
 	public ModelAndView setReplyAdd(BoardDTO qnaDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -133,6 +134,17 @@ public class QnaController {
 		mv.addObject("url", "./list");
 		
 		return mv;
+	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("boardFile", qnaService.getBoardFileDetail(boardFileDTO));
+		mv.setViewName("fileDownView");
+		
+		return mv;
+		
 	}
 	
 	

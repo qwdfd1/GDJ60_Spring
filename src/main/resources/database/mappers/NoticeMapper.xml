@@ -81,6 +81,11 @@
 		</collection>
  	</resultMap>
  	
+ 	<select id="getBoardFileDetail" parameterType="BoardFileDTO" resultType="BoardFileDTo">
+ 		SELECT * FROM NOTICEFILES
+ 		WHERE FILENUM = #{fileNum}
+ 	</select>
+ 	
  	
 
  </mapper>

@@ -37,8 +37,9 @@ public class BankBookService {
 		return bankBookDAO.getBankBookList(pager);
 	}
 	
-	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
-		return bankBookDAO.getBankBookDetail(bankBookDTO);
+	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception { 
+			return bankBookDAO.getBankBookDetail(bankBookDTO);
+				
 	}
 	
 	public int setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic) throws Exception {

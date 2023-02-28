@@ -16,9 +16,16 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- InternalResourceViewResolver : 내부 자원을 이용해서 bean을 생성  -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"></beans:property>
+	</beans:bean>
+	
+	<!-- bean의 이름으로 탐색해서 View로 이동 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 	
 	<!-- 어노테이션 읽어라 -->
