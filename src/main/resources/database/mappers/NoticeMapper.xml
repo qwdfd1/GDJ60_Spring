@@ -86,6 +86,15 @@
  		WHERE FILENUM = #{fileNum}
  	</select>
  	
+ 	<select id="getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
+		SELECT * FROM NOTICEFILES
+		WHERE NUM = #{num}
+ 	</select>
+ 	
+ 	<delete id="setBoardDelete" parameterType="BbsDTO">
+ 		DELETE NOTICE WHERE NUM = #{num} 
+ 	</delete>
+ 	
  	
 
  </mapper>
