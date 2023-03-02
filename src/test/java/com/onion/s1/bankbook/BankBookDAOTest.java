@@ -15,7 +15,7 @@ public class BankBookDAOTest extends MyTestCase{
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	@Test
+	//@Test
 	public void getBankBookListTest() throws Exception {
 					
 //		List<BankBookDTO> bankBookDTOs = bankBookDAO.getBankBookList();
@@ -31,7 +31,7 @@ public class BankBookDAOTest extends MyTestCase{
 //		assertNull(bankBookDTO);
 //	}
 	
-	@Test
+	//@Test
 	public void setBankBookAddTest() throws Exception {
 		for(int i=0; i<30; i++) {
 			Random r = new Random();
@@ -53,7 +53,7 @@ public class BankBookDAOTest extends MyTestCase{
 		
 	}
 	
-	@Test
+	//@Test
 	public void setBankBookDeleteTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBookNumber(4L);

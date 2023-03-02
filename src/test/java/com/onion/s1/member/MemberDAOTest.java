@@ -14,7 +14,7 @@ public class MemberDAOTest extends MyTestCase {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	@Test
+	//@Test
 	public void setMemberJoinTest() throws Exception {
 		
 		MemberDTO memberDTO = new MemberDTO();

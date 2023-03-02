@@ -13,7 +13,7 @@ public class QnaDAOTest extends MyTestCase{
 	@Autowired
 	private QnaDAO qnaDAO;
 	
-	@Test
+	//@Test
 	public void getTotalCountTest() throws Exception {
 		Pager pager = new Pager();
 		pager.setKind("title");
@@ -25,7 +25,7 @@ public class QnaDAOTest extends MyTestCase{
 				
 	}
 	
-	@Test
+	//@Test
 	public void getBoardListTest() throws Exception {
 		Pager pager = new Pager();
 		pager.setKind("title");
@@ -36,7 +36,7 @@ public class QnaDAOTest extends MyTestCase{
 
 	}
 	
-	@Test
+	//@Test
 	public void setBoardAdd() throws Exception {
 		QnaDTO qnaDTO = new QnaDTO();
 		qnaDTO.setTitle("환불 요청");

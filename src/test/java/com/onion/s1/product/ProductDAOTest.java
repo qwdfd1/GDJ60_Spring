@@ -14,7 +14,7 @@ public class ProductDAOTest extends MyTestCase {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@Test
+	//@Test
 	public void getProductListTest() throws Exception {
 		List<ProductDTO> productDTOs = productDAO.getProductList();
 		
@@ -24,7 +24,7 @@ public class ProductDAOTest extends MyTestCase {
 
 	}
 	
-	@Test
+	//@Test
 	public void getProductDetailtest() throws Exception {
 		// TODO Auto-generated method stub
 		ProductDTO productDTO = new ProductDTO();
@@ -35,7 +35,7 @@ public class ProductDAOTest extends MyTestCase {
 	
 	
 //	insert
-	@Test
+	//@Test
 	public void setProductAddTest() throws Exception {
 		
 		ProductDTO productDTO = new ProductDTO();

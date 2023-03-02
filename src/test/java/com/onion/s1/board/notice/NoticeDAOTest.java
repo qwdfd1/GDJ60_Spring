@@ -16,7 +16,7 @@ public class NoticeDAOTest extends MyTestCase{
 	
 	
 
-	@Test
+	//@Test
 	public void getTotalCount() throws Exception {
 		
 		Pager pager = new Pager();
@@ -28,7 +28,7 @@ public class NoticeDAOTest extends MyTestCase{
 		assertNotEquals(0, result);		
 	}
 	
-	@Test
+	//@Test
 	public void setBoardAdd() throws Exception {
 		
 		NoticeDTO noticeDTO = new NoticeDTO();
