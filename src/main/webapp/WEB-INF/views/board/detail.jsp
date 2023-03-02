@@ -51,7 +51,7 @@
 
 
 	<div class="row">
-		<c:if test="${member.id eq dto.writer}">
+		<%-- <c:if test="${member.id eq dto.writer}"> --%>
 			<div class="col-md-8">
 				<form action="./update" id="frm">
 					<input type="hidden" name="num" value="${dto.num}">
@@ -61,7 +61,7 @@
 					<button type="button" class="btn btn-primary col-md-2 mx-2" id="delete">글 삭제</button>
 				</form>
 			</div>
-		</c:if>
+		<%-- </c:if> --%>
 		
 		<a href="./list" class="btn btn-primary col-md-2 mx-1">목록으로</a>	
 		

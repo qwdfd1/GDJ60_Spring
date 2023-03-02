@@ -50,6 +50,7 @@ public class NoticeService implements BoardService{
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] files, HttpSession session) throws Exception {
 			int result = noticeDAO.setBoardAdd(bbsDTO);
+			System.out.println("AddResult : " + result);
 			
 			String realPath = session.getServletContext().getRealPath("resources/upload/notice/");
 			

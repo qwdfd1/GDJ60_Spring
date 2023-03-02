@@ -91,4 +91,14 @@ public class NoticeController {
 		return mv;
 	}
 	
+	@GetMapping("update")
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("board/update");
+		mv.addObject("dto", noticeService.getBoardDetail(boardDTO));
+		
+		return mv;
+	}
+	
 }
