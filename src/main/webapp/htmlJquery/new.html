@@ -8,16 +8,26 @@
 </head>
 <body>
     <div>
-        <button id="btn1">Button1</button>
+        <h1>New Window</h1>
+        <button id="close">Close</button>
+
+        
     </div>
-    <button class="buttons">Button2</button>
-    <button class="buttons">Button3</button>
-    <button class="buttons">Button4</button>
+
+
+
+    <script>
+        const cl = document.getElementById("close");
+        cl.addEventListener("click", function(){
+            //열어준 browser의 window 객체
+            opener.location.reload();
+            window.self.close();
+
+        })
+
+    </script>
     
     
-    <!-- <script src="./jsStudy1.js"></script> -->
-    <!-- <script src="./jsStudy_window.js"></script> -->
-    <script src="./jsStudy_object.js"></script>
     <div id="map" style="width: 500px; height: 400px;"></div>
 </body>
 </html>
