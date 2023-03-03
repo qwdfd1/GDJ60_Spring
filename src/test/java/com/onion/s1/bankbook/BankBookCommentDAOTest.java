@@ -19,21 +19,33 @@ public class BankBookCommentDAOTest extends MyTestCase {
 	
 	//list
 	//@Test
-	public void getBoardList() throws Exception {
-		
-		Pager pager = new Pager();
-		pager.setBookNum(421L);
-		pager.setKind("writer");
-		pager.setSearch("t");
-		pager.makeRow();
-		//long count = bankBookCommentDAO.getTotalCount(pager);
-		List<BbsDTO> ar = bankBookCommentDAO.getBoardList(pager);
-		
-		
+//	public void getBoardList() throws Exception {
+//		
+//		Pager pager = new Pager();
+//		pager.setBookNum(421L);
+//		pager.setKind("writer");
+//		pager.setSearch("t");
+//		pager.makeRow();
+//		//long count = bankBookCommentDAO.getTotalCount(pager);
+//		List<BbsDTO> ar = bankBookCommentDAO.getBoardList(pager);
+//		
+//		
+//	
+//		assertEquals(2, ar.size());
+//	}
 	
-		assertEquals(2, ar.size());
-	}
-	
+//	@Test
+//	public void setBoardAddTest() throws Exception {
+//		BankBookCommentDTO bankBookCommentDTO = new BankBookCommentDTO();
+//		bankBookCommentDTO.setContents("으아아아아아아앙");
+//		bankBookCommentDTO.setBookNumber(486L);
+//		bankBookCommentDTO.setWriter("음냐음냐");
+//		
+//		
+//		assertNotEquals(0, bankBookCommentDAO.setBoardAdd(bankBookCommentDTO));
+//	
+//		
+//	}
 	
 	
 

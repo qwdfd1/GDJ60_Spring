@@ -45,11 +45,51 @@ function getMsg(id, msg, check) {
     return check, msg;
 }
 
+
+
+
 formId.addEventListener("blur", function(){
 
     let idMsg = document.getElementById("idMsg");
 
-    checks[0] = getMsg(formId, idMsg, checks[0]);
+    //ID 중복검사
+    let xhttp = new XMLHttpRequest();
+
+    //url, method
+    xhttp.open('POST', './memberIdCheck');
+
+    //요청 헤더 정보
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    //요청 메서드 POST일 경우 parameter 전송
+    xhttp.send('id='+formId.value);
+
+    //응답 처리
+    xhttp.addEventListener('readystatechange', function(){
+        if(xhttp.readyState == 4 && xhttp.status == 200) {
+            if(xhttp.responseText.trim()=='true') {
+                idMsg.innerText = "사용가능한 ID";
+                idMsg.classList.add("blueResult");
+                idMsg.classList.remove("redResult");
+                checks[0] = true;
+            }
+            else {
+                idMsg.innerText = "중복된 ID";
+                idMsg.classList.add("redResult");
+                idMsg.classList.remove("blueResult");
+                checks[0] = false;
+            }
+        }
+        if(xhttp.readyState == 4 && xhttp.status != 200) {
+            
+        }
+    })
+
+
+
+
+
+    // checks[0] = getMsg(formId, idMsg, checks[0]);
 
     console.log("id : ",checks[0]);
 

@@ -41,4 +41,12 @@
  		
  	</select>
  	
+ 	<insert id="setBoardAdd" parameterType="BbsDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+ 			SELECT BANKBOOK_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
+ 		INSERT INTO BANKBOOKCOMMENT (NUM, BOOKNUMBER, CONTENTS, REGDATE, WRITER)
+ 		VALUES (#{num}, #{bookNumber}, #{contents}, SYSDATE, #{writer})	
+ 	</insert>
+ 	
  </mapper>

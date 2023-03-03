@@ -46,5 +46,19 @@ public class MemberService {
 		return this.memberDAO.setMemberUpdate(memberDTO);
 	}
 	
+	public boolean getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		memberDTO = memberDAO.getMemberLogin(memberDTO);
+		
+		//중복이 아니면 true
+		//중복이면 false;
+		boolean check = true;
+		
+		if(memberDTO != null) {
+			check = false;
+		}
+		
+		return check;
+	}
+	
 
 }

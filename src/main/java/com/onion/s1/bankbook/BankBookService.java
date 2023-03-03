@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.onion.s1.board.BbsDTO;
 import com.onion.s1.util.FileManager;
 import com.onion.s1.util.Pager;
 
@@ -71,4 +72,6 @@ public class BankBookService {
 	public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception {
 		return bankBookDAO.setBankBookDelete(bankBookDTO);
 	}
+	
+
 }
