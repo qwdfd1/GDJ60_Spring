@@ -26,6 +26,7 @@ public class BankBookCommentController {
 		
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getBookNumber());
+		System.out.println(pager.getPage());
 		
 		pager.setPerPage(5L);
 		mv.addObject("list", bankBookCommentService.getBoardList(pager));

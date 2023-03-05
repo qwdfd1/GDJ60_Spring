@@ -24,6 +24,7 @@ public class BankBookCommentService implements BbsService {
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
 		pager.makeRow();
 		
+		System.out.println("Total Count : " + bankBookCommentDAO.getTotalCount(pager));
 		pager.makeNum(bankBookCommentDAO.getTotalCount(pager));
 		
 		return bankBookCommentDAO.getBoardList(pager);

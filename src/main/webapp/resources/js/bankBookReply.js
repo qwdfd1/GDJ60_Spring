@@ -31,10 +31,12 @@ replyAdd.addEventListener("click", function() {
     })
 })
 
+getList();
+
 function getList() {
     let xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "/bankBookComment/list?bookNumber="+replyAdd.getAttribute("data-bookNumber"));
+    xhttp.open('GET', '../bankBookComment/list?bookNumber='+replyAdd.getAttribute("data-bookNumber"));
 
     xhttp.send();
 
@@ -47,5 +49,31 @@ function getList() {
 
 }
 
-getList();
+
+
+commentList.addEventListener('click', function(e){
+    let xhttp = new XMLHttpRequest();
+    if(e.target.classList.contains('page-link')) {
+        let page = e.target.getAttribute('data-board-page');
+        let bookNumber = replyAdd.getAttribute("data-bookNumber");
+
+        
+        xhttp.open('GET', '../bankBookComment/list?page='+page+'&bookNumber='+bookNumber);
+        xhttp.send();
+
+        xhttp.addEventListener('readystatechange', function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200) {
+                commentList.innerHTML = xhttp.responseText.trim();
+            } 
+        })
+
+
+    }
+
+
+})
+
+
+
+
 

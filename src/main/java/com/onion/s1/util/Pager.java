@@ -149,7 +149,7 @@ public class Pager {
 		return bookNumber;
 	}
 
-	public void setBookNum(Long bookNumber) {
+	public void setBookNumber(Long bookNumber) {
 		this.bookNumber = bookNumber;
 	}
 
