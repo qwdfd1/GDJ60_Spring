@@ -18,7 +18,7 @@
 					</td>
 					<td class="col-md-1">
 						<c:if test="${member.id eq dto.writer}">
-							<button class="btn btn-outline-primary update" data-board-num='${dto.num}'>Update</button>
+							<button class="btn btn-outline-primary update" data-board-num='${dto.num}' data-bs-toggle="modal" data-bs-target="#contentsModal">Update</button>
 						</c:if>
 					</td>
 				</tr>
