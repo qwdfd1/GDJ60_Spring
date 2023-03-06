@@ -2,13 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+	
 	<table class="table table-striped">
 		<tbody >
 			<c:forEach var="dto" items="${list}">
 				<tr>
 					<td class="col-md-2">${dto.writer}</td>
-					<td class="col-md-5">${dto.contents}</td>
+					<td class="col-md-5" id="contents${dto.num}">${dto.contents}</td>
+					<!-- <td><textarea class="form-control" name="contents" id="updateContents" cols="30" rows="1">${dto.contents}</textarea></td> -->
 					<td class="col-md-2">${dto.regDate}</td>
+					<td class="col-md-1">
+						<c:if test="${member.id eq dto.writer}">
+							<button class="btn btn-outline-danger del" data-board-num='${dto.num}'>X</button>
+						</c:if>
+					</td>
+					<td class="col-md-1">
+						<c:if test="${member.id eq dto.writer}">
+							<button class="btn btn-outline-primary update" data-board-num='${dto.num}'>Update</button>
+						</c:if>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

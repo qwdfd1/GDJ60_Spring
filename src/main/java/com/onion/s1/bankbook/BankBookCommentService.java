@@ -24,7 +24,6 @@ public class BankBookCommentService implements BbsService {
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
 		pager.makeRow();
 		
-		System.out.println("Total Count : " + bankBookCommentDAO.getTotalCount(pager));
 		pager.makeNum(bankBookCommentDAO.getTotalCount(pager));
 		
 		return bankBookCommentDAO.getBoardList(pager);
@@ -42,16 +41,14 @@ public class BankBookCommentService implements BbsService {
 
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return bankBookCommentDAO.setBoardDelete(bbsDTO);
 	}
 
 
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return bankBookCommentDAO.setBoardUpdate(bbsDTO);
 	}
 
 

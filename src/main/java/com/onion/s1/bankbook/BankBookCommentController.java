@@ -25,8 +25,7 @@ public class BankBookCommentController {
 	public ModelAndView getBoardList(Pager pager) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		System.out.println(pager.getBookNumber());
-		System.out.println(pager.getPage());
+
 		
 		pager.setPerPage(5L);
 		mv.addObject("list", bankBookCommentService.getBoardList(pager));
@@ -53,5 +52,36 @@ public class BankBookCommentController {
 		return mv;
 		
 	}
+	
+	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+			
+		
+		mv.addObject("result", bankBookCommentService.setBoardDelete(bankBookCommentDTO, null));
+		mv.setViewName("common/ajaxResult");
+		
+		
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = bankBookCommentService.setBoardUpdate(bankBookCommentDTO);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
 	
 }

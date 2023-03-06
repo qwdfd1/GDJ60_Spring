@@ -45,17 +45,18 @@
 	<a href="./update?bookNumber=${bankBookDTO.bookNumber }" class="btn btn-primary">상품 수정</a>
 
 	<div class="my-5">
+	  
+	  <div class="row col-md-10 offset-md-1" id="commentList">
+
+	  </div>
 	  <div class="mb-3">
 		<textarea class="form-control" id="replyContents" rows="3" name="contents" ></textarea>
 	  </div>
 	  <div class="mb-3">
 		<button class="btn btn-primary" data-bookNumber="${bankBookDTO.bookNumber}" id="replyAdd">댓글 작성</button>
 	  </div>
-	  <div class="row col-md-10 offset-md-2" id="commentList">
 
-	  </div>
 	</div>
-
 	
 	<c:import url="../template/common_js.jsp"></c:import>
 	<script src="../resources/js/bankBookReply.js"></script>

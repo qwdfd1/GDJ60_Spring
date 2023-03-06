@@ -98,7 +98,7 @@ public class BankBookController {
 		int result = bankBookService.setBankBookDelete(bankBookDTO);
 		mv.setViewName("redirect:./list");
 		
-		System.out.println("getbankBookAdd");
+		System.out.println("setbankBookDelete");
 		System.out.println(result != 0);
 		
 		return mv;
