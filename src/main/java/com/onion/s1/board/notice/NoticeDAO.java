@@ -34,7 +34,6 @@ public class NoticeDAO implements BoardDAO {
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
-
 		return sqlSession.insert(NAMESPACE + "setBoardAdd", bbsDTO);
 	}
 
@@ -69,6 +68,14 @@ public class NoticeDAO implements BoardDAO {
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getBoardFileDetail", boardFileDTO);
 	}
+
+	@Override
+	public int setBoardFileDelete(Long fileNum) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
 	
 	
 	

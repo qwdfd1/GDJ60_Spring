@@ -113,6 +113,15 @@
 		WHERE FILENUM = #{fileNum}
 	</select>
 	
+	<update id="setBoardUpdate" parameterType="BbsDTO">
+		UPDATE QNA SET TITLE = #{title}, CONTENTS = #{contents} 
+		WHERE NUM = #{num}
+	</update>
+	
+	<delete id="setBoardFileDelete" parameterType="Long">
+		DELETE QNAFILES WHERE FILENUM = #{fileNum}
+	</delete>
+	
 	 	
 
  	
