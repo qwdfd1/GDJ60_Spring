@@ -46,31 +46,81 @@ $("#fileList").on('click', '.dels', function(){
 })
 
 $('.deleteCheck').click(function(){
-    console.log(count);
-    if($(this).prop('checked')){
+
         let result = confirm('파일이 영구 삭제 됩니다');
+        let ch = $(this);
         if(result) {
-            count--;
+            //ajax DB에서 삭제
+
+            let fileNum = $(this).val();
+
+            
+            $.ajax({
+                type : 'POST',
+                url : './boardFileDelete',
+                data : {
+                    fileNum : fileNum
+                },
+                success : function(response){
+                    if(response.trim() > 0) {
+                        //ajax코드 내에서의 this는 ajax객체를 의미
+                        // console.log($(this));
+                        // $(this).parent().parent().remove();
+                        
+                        ch.parent().parent().remove();
+                        count--;
+                        alert('삭제 되었습니다.');
+                    }
+                    else {
+                        alert('삭제 실패, 관리자에게 문의 요망');
+                    }
+                },
+                error : function(){
+
+                }
+            })
+
+            //fetch(GET) 
+            // fetch("URL?p=1", {
+            //     method : 'GET',
+
+            // }).then((response)=>response.text())
+            // .then((res) =>{
+
+            // })
+
+            //ajax(GET)
+            // $.get("URL?p=1", function(response){
+
+            // })
+
+            //fetch(POST)
+            // fetch("URL", {
+            //     method : 'POST',
+            //     headers : {
+            //         'Contents-Type' : 'X,,,'
+            //     },
+            //     body : 'p=1'
+            // }).then((response) => response.text)
+            // .then((res) => {
+
+            // })
+
+            //ajax(POST)
+            // $.post("URL", {p:1}, function(res){
+
+            // })
         }
         else {
             $(this).prop('checked', false);
         }
         
-    }
-    else {        
-
-        if(count == 5) {
-                console.log(count-1);
-                idx--;
-                $('#d'+(idx)).remove();
-                // count--
-                return;
-        }
-        idx++;    
+    
+  
     
         
 
-    }
+    
 })
 
 

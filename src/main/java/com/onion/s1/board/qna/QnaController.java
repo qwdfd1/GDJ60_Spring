@@ -182,7 +182,20 @@ public class QnaController {
 	
 //	-------------------------------------------------------------------------------
 	
-
+	@PostMapping("boardFileDelete")
+	public ModelAndView setBoardFileDelete(Long fileNum) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = qnaService.setBoardFileDelete(fileNum);
+		
+		
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		
+		
+		return mv;
+	}
+	
 	
 	
 }
