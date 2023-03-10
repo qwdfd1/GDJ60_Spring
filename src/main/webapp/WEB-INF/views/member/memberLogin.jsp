@@ -25,7 +25,7 @@
 					<div class="row mb-3 justify-content-center mt-5">
 					  <label for="memberId" class="col-sm-1 col-form-label">ID</label>
 					  <div class="col-sm-5">
-					  	<input type="text" class="form-control" name="id" id="memberId" placeholder="아이디 입력">
+					  	<input type="text" class="form-control" value="${cookie.rememberId.value}" name="id" id="memberId" placeholder="아이디 입력">
 					  </div>
 					</div>
 					
@@ -35,6 +35,11 @@
 					  	<input type="password" class="form-control" name="pw" id="memberPw">
 					  </div>
 					</div>
+					
+					<div class="row mb-3 justify-content-center mt-5 form-check">
+						<label for="" class="col-sm-1 col-form-label">Remember</label>
+			            <input type="checkbox" name="remember" value="remember" class="form-check-input">
+       				</div>
 	
 					
 					
