@@ -15,7 +15,7 @@ $('#btn').click(()=> {
             response = JSON.parse(response);
 
         }
-    }, 
+    }
     
     )
 
